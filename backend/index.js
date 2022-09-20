@@ -1,14 +1,14 @@
 const express = require('express');
 const dotEnv = require('dotenv');
 const cors = require('cors');
-const mysql_db_connection = require('./database/mysql_connection')
+const mysql_db_connection = require('./database/mysql/check_mysql_connection')
 
 dotEnv.config();
 
 const app = express();
 
 //DB connectivity
-let temp = mysql_db_connection()
+mysql_db_connection()
 
 
 // Request payload middleware
