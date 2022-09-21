@@ -1,19 +1,18 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../connection')
 
-const stars = sequelize.define("stars",{
-    id: {
+const ratings = sequelize.define("ratings",{
+    movieId: {
         type: Sequelize.STRING(10),
-        allowNull: false,
-        primaryKey: true
-    },
-    name: {
-        type: Sequelize.STRING(100),
         allowNull: false
     },
-    year: {
+    rating: {
+        type: Sequelize.FLOAT,
+        allowNull: false
+    },
+    numVotes: {
         type: Sequelize.INTEGER,
-        allowNull: true
+        allowNull: false
     }
 }, {
     timestamps: false,
@@ -21,5 +20,6 @@ const stars = sequelize.define("stars",{
     updatedAt: false,
 }
 );
+ratings.removeAttribute('id');
 
-module.exports = stars;
+module.exports = ratings;
