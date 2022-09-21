@@ -1,26 +1,26 @@
 const express = require('express');
 const dotEnv = require('dotenv');
 const cors = require('cors');
-const mysql_db_connection = require('./database/mysql/check_mysql_connection')
+const sequelize_db_connection = require('./database/sequelize/test_connection')
 
 dotEnv.config();
-
 const app = express();
 
 //DB connectivity
-mysql_db_connection()
-
+sequelize_db_connection()
 
 // Request payload middleware
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-// cors
-app.use(cors);
-
+// Default screen
 app.get('/', (req, res, next) => {
-    res.send('Hello from Node Server');
-})
+    res.send('Welcome to, Fabflix 2.0 Backend');
+});
+
+// Modularized api routers
+app.use('/api/movie-router', require('./api/movies/movie_router'))
 
 const PORT = process.env.PORT || 3000;
 
