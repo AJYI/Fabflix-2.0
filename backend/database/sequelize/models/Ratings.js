@@ -23,9 +23,4 @@ const ratings = sequelize.define("ratings",{
 );
 ratings.removeAttribute('id');
 
-movies.hasOne(ratings,{
-    foreignKey: 'movieId'
-});
-ratings.belongsTo(movies);
-
 module.exports = ratings;

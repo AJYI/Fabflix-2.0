@@ -19,7 +19,4 @@ const stars_in_movies = sequelize.define('stars_in_movies', {
     updatedAt: false,
 });
 
-movies.belongsToMany(stars, {through: stars_in_movies, foreignKey: 'movieId'});
-stars.belongsToMany(movies, {through: stars_in_movies, foreignKey: 'starId'});
-
 module.exports = stars_in_movies;

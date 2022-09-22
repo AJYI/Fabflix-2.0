@@ -19,7 +19,4 @@ const genres_in_movies = sequelize.define('genres_in_movies', {
     updatedAt: false,
 });
 
-movies.belongsToMany(genres, {through: genres_in_movies});
-genres.belongsToMany(movies, {through: genres_in_movies});
-
 module.exports = genres_in_movies;
