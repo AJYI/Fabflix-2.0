@@ -48,7 +48,6 @@ module.exports.get_all_movies = async() => {
 module.exports.get_single_movie = async(request_body) => {
     try {
         const movie_id = request_body.movie_id
-        console.log(movie_id)
         const movie_entry = await db.movies.findByPk(movie_id ,{
             include: [
                 {

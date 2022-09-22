@@ -1,11 +1,11 @@
 const stars_service = require('./stars_service');
 
-module.exports.get_single_star = async (res,req) => {
+module.exports.get_single_star = async (req,res) => {
     let response = {}
     try{
         const response_from_service = await stars_service.get_single_star(req.params);
         response.status = 200;
-        response.message = `The star ID, '${request.param.star-id}', has been retrieved.`;
+        response.message = `Got the star with the ID of '${req.params.star_id}'.`;
         response.body = response_from_service;
     } catch (error) {
         console.log("Error in 'stars_controller',get_single_star", error);
