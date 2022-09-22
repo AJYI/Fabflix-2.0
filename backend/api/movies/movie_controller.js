@@ -35,10 +35,9 @@ module.exports.get_all_movies = async(req, res) => {
 module.exports.get_single_movie = async(req, res) => {
     let response = {}
     try{
-        console.log(req.params)
         const response_from_service = await movie_service.get_single_movie(req.params);
         response.status = 200;
-        response.message = "Got a singular movie.";
+        response.message = `Got the movie with the ID of '${req.params.movie_id}'.`;
         response.body = response_from_service;
     } catch (error) {
         console.log("Error in 'movie_controller', get_single_movie : ", error);

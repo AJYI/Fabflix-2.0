@@ -1,7 +1,7 @@
 const sequelize = require('../../database/sequelize/connection')
 const genres_in_movies = require('../../database/sequelize/models/genres_in_movies')
-const genres = require('../../database/sequelize/models/genres')
 const stars_in_movies = require('../../database/sequelize/models/stars_in_movies')
+const genres = require('../../database/sequelize/models/genres')
 const stars = require('../../database/sequelize/models/stars')
 const movies = require('../../database/sequelize/models/movies')
 const ratings = require('../../database/sequelize/models/ratings')
@@ -21,7 +21,7 @@ module.exports.get_all_movies = async() => {
     try {
 
         const movie_entry = await movies.findAll({
-            limit: 10,
+            
             include: [
                 {
                     model: ratings,
@@ -29,6 +29,7 @@ module.exports.get_all_movies = async() => {
                 }, 
                 {
                     model: genres,
+                    required: true,
                     through: {
                         attributes: []
                     }
@@ -40,7 +41,8 @@ module.exports.get_all_movies = async() => {
                     }
                 },
             ],
-            order: [[{model: ratings}, 'rating', 'DESC']]
+            order: [[{model: ratings}, 'rating', 'DESC']],
+            limit: 10
         });
 
         return movie_entry;
@@ -68,11 +70,19 @@ module.exports.get_single_movie = async(request_body) => {
                 },
                 {
                     model: stars,
+                    required: true,
+                    attributes: [
+                        'id',
+                        'name',
+                        'birthYear',
+                        [sequelize.literal('(select count(*) from stars_in_movies where stars.id = stars_in_movies.starId group by stars.name)'), 'count'],
+                    ],
                     through: {
                         attributes: []
-                    }
+                    },
                 },
             ],
+            order: [[{model: genres}, 'id', 'ASC'], sequelize.literal("`stars.count` DESC")],
         });
 
         return movie_entry;
