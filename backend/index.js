@@ -20,8 +20,7 @@ app.get('/', (req, res, next) => {
 });
 
 // Modularized api routers
-app.use('/api/movie-router', require('./api/movies/movie_router'))
-app.use('/api/stars-router', require('./api/stars/stars_router'))
+app.use('/api', require('./api/api_router'))
 
 const PORT = process.env.PORT || 3000;
 
