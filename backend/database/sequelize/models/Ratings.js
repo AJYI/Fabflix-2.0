@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
-const sequelize = require('../connection')
+const sequelize = require('../connection');
+const movies = require('./movies');
 
 const ratings = sequelize.define("ratings",{
     movieId: {
@@ -21,5 +22,10 @@ const ratings = sequelize.define("ratings",{
 }
 );
 ratings.removeAttribute('id');
+
+movies.hasOne(ratings,{
+    foreignKey: 'movieId'
+});
+ratings.belongsTo(movies);
 
 module.exports = ratings;

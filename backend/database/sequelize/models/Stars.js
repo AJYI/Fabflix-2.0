@@ -11,10 +11,10 @@ const stars = sequelize.define("stars",{
         type: Sequelize.STRING(100),
         allowNull: false
     },
-    year: {
+    birthYear: {
         type: Sequelize.INTEGER,
         allowNull: true
-    }
+    },
 }, {
     timestamps: false,
     createdAt: false,
