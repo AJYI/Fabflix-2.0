@@ -3,7 +3,7 @@ const db = require('../../database/sequelize/database')
 
 module.exports.browse_genres = async() => {
     try {
-        const genres = await sequelize.query("select name, genreId, count(genres.name) as count from genres, genres_in_movies where genres.id = genres_in_movies.genreId group by genres.name order by genres.name ASC");
+        const genres = await sequelize.query("select name, genreId, count(genres.name) as count from genres, genres_in_movies where genres.id = genres_in_movies.genreId group by genres.name order by genres.name ASC", { type: sequelize.QueryTypes.SELECT });
         return genres;
     } catch (error) {
         console.log('Something went wrong within "genres service": browse_genres', error);

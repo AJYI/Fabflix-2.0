@@ -15,6 +15,8 @@ router.post('/movies/create-movie-entry', movie_controller.create_movie_entry);
 
 // Star Routes
 router.get('/stars/get-single-star/:star_id', star_controller.get_single_star);
+router.get('/stars/browse-cast-first-letter', star_controller.browse_cast_letter_list);
+router.get('/stars/browse-cast-results/:first_letter', star_controller.browse_cast_by_first_letter); // Add the sorting implementations
 
 
 module.exports = router;
