@@ -4,10 +4,16 @@ test
 
 ## For Backend:
 
-### Requirements:
+### Required Software:
 
 - [NodeJS](https://nodejs.org/en/download/)
 - [MySQL](https://dev.mysql.com/downloads/windows/installer/8.0.html)
+
+### Setting up the database:
+
+1. Import the SQL scripts from 'backend/database/SQL_scripts/' into MySQL
+2. First run the 'movie_database_tables.sql' file.
+3. Then run 'movie_database_data.sql' file.
 
 ## Sources:
 
