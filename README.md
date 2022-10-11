@@ -4,7 +4,7 @@ test
 
 ## For Backend:
 
-### Required Software:
+### Required Software for the backend:
 
 - [NodeJS](https://nodejs.org/en/download/)
 - [MySQL](https://dev.mysql.com/downloads/windows/installer/8.0.html)
@@ -17,11 +17,27 @@ test
 
 ### Getting the backend running:
 
-1. run 'npm install'.
+1. Run 'npm install'.
 2. Set up the '.env' file by creating it within the backend folder.
 3. Inside the '.env' file add:
    - PORT=3002
    - MYSQL_DATABASE=moviedb
+   - MYSQL_ROOT=root
+   - MYSQL_HOST=127.0.0.1
+   - MYSQL_PASSWORD=ThePasswordYouUsedDuringSetUp
+
+### To check whether the backend has been set-up properly:
+
+1. Run 'npm run dev'
+2. If you see 'ORM Connection Established!' then the backend has been setup properly.
+3. If you see an error re-read the steps and try again.
+
+#### Features to add in the feature
+
+1. Dockerize the database
+2. Dockerize the backend
+3. Add authentication
+4. Add cookies/states
 
 ## Sources:
 
