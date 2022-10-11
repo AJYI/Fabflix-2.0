@@ -15,6 +15,14 @@ test
 2. First run the 'movie_database_tables.sql' file.
 3. Then run 'movie_database_data.sql' file.
 
+### Getting the backend running:
+
+1. run 'npm install'.
+2. Set up the '.env' file by creating it within the backend folder.
+3. Inside the '.env' file add:
+   - PORT=3002
+   - MYSQL_DATABASE=moviedb
+
 ## Sources:
 
 https://www.youtube.com/watch?v=344Zv2m9TYI&t=2130s&ab_channel=TheFullStackJunkie
