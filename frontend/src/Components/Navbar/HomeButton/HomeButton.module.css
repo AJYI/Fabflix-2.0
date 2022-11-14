@@ -1,0 +1,17 @@
+.title {
+  flex: auto;
+  display: flex;
+  align-items: center;
+}
+
+.home {
+  font-size: 1.5rem;
+  text-decoration: None;
+  color: #e4ebf7;
+}
+
+@media (max-width: 768px) {
+  .home {
+    font-size: 1rem;
+  }
+}

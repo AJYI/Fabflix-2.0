@@ -1,0 +1,33 @@
+/* used https://ianlunn.github.io/Hover/ */
+.container {
+  flex: auto;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.options {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+}
+
+.navObject {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #e4ebf7;
+}
+
+@media (max-width: 768px) {
+  .navObject {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .createAccount {
+    display: none;
+  }
+}
